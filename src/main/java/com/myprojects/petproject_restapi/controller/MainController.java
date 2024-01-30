@@ -25,7 +25,7 @@ public class MainController {
             description = "Получает DTO сущности и билдером собирает и сохраняет сущность в базу"
     )
     @PostMapping("/api/add")
-    public void addEntity(@RequestBody EntityDto entityDto) {
+    public void addUser(@RequestBody EntityDto entityDto) {
         log.info(
                 "New Entity: " + entityRepo.save(
                         Entity.builder()

@@ -1,5 +1,4 @@
 version: '3.1'
-
 services:
   app:
     image:  sha256:4e89408e0f3c925768e5321fb358180fb213bef443b202f4dc42b2744ff6ebe3
