@@ -1,17 +1,23 @@
 package com.myprojects.petproject_restapi.DTO;
 
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
 
 
 @Data
 @FieldDefaults (level = AccessLevel.PRIVATE)
+@AllArgsConstructor
 public class EntityDto {
 
-    String name;
+    private String username;
 
-    int weight;
+    private Long id;
 
-    int age;
+    private String email;
+
+    private int weight;
+
+    private int age;
 }

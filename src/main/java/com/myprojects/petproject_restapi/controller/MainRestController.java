@@ -16,7 +16,7 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-public class MainController {
+public class MainRestController {
 
     private final EntityRepo entityRepo;
 
@@ -30,7 +30,7 @@ public class MainController {
                 "New Entity: " + entityRepo.save(
                         Entity.builder()
                                 .age(entityDto.getAge())
-                                .name(entityDto.getName())
+                                .username(entityDto.getUsername())
                                 .weight(entityDto.getWeight())
                                 .build())
         );
@@ -39,12 +39,14 @@ public class MainController {
     @SneakyThrows
     @GetMapping("/api/all")
         public List<Entity> getAll() {
-            return entityRepo.findAll();
+            return (List<Entity>) entityRepo.findAll();
         }
+
     @GetMapping("/api")
     public Entity getEntity (@RequestParam int id) {
-        return entityRepo.findById(id).orElseThrow();
+        return entityRepo.findById((long) id).orElseThrow();
     }
+
     @DeleteMapping("/api")
     public void deleteEntity (@RequestParam int id) {
         entityRepo.deleteById(id);
